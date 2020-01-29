@@ -92,7 +92,7 @@ LCDA        6.05   0.88
 
 | Model    | Adjusted $R^2$ |
 |--------- |----------------|
-|BYU-I kj/min | 0.89|
+|Lankford kj/min | 0.89|
 |Pandolf kj/min| 0.78|
 |Minetti kj/min | 0.55|
 |LCDA kj/min | 0.88|
@@ -101,7 +101,7 @@ LCDA        6.05   0.88
 
 ## Residual Plots
 
-### BYU-I
+### Lankford
 
 
 ```r
@@ -116,7 +116,7 @@ p_byui <- pdat_byui %>%
   geom_hline(yintercept = c(sd_byui, -sd_byui), lty = "dashed") +
   theme_bw() +
   scale_y_continuous(limits = c(-35, 45)) +
-  labs(x = "Actual (kj/min)", y = "Predicted (kj/min) residual",  title = "BYU-I model")
+  labs(x = "Actual (kj/min)", y = "Predicted (kj/min) residual",  title = "Lankford model")
 
 ### LCDA
 pdat_lcda <- tibble(x = dat_validate$actual_kjmin, y = valid_detail(data = dat_validate, yi = "actual_kjmin", yhat = "lcda_kjmin", 
@@ -182,7 +182,7 @@ p_minetti <- pdat_minetti %>%
 
 
 ggsave(plot = p_lcda, filename = "../images_highres/lcda_altman.png", dpi = 300, width = 5, height = 5)
-ggsave(plot = p_byui, filename = "../images_highres/byui_altman.png", dpi = 300, width = 5, height = 5)
+ggsave(plot = p_byui, filename = "../images_highres/lankford_altman.png", dpi = 300, width = 5, height = 5)
 ggsave(plot = p_minetti, filename = "../images_highres/minetti_altman.png", dpi = 300, width = 5, height = 5)
 ggsave(plot = p_acsm, filename = "../images_highres/acsm_altman.png", dpi = 300, width = 5, height = 5)
 ggsave(plot = p_pandolf, filename = "../images_highres/pandolf_altman.png", dpi = 300, width = 5, height = 5)
