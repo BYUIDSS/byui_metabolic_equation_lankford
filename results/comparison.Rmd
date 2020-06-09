@@ -109,7 +109,8 @@ p_byui <- pdat_byui %>%
   geom_hline(yintercept = c(sd_byui, -sd_byui), lty = "dashed") +
   theme_bw() +
   scale_y_continuous(limits = c(-35, 45)) +
-  labs(x = "Actual (kj/min)", y = "Predicted (kj/min) residual",  title = "Lankford model")
+  labs(x = TeX("Measured Residual ($kJ \\cdot min^{-1})"), 
+       y = TeX("Predicted Residual ($kJ \\cdot min^{-1})"),  title = "Lankford")
 
 ### LCDA
 pdat_lcda <- tibble(x = dat_validate$actual_kjmin, y = valid_detail(data = dat_validate, yi = "actual_kjmin", yhat = "lcda_kjmin", 
@@ -123,7 +124,8 @@ p_lcda <- pdat_lcda %>%
   geom_hline(yintercept = c(sd_lcda, -sd_lcda), lty = "dashed") +
   theme_bw() +
   scale_y_continuous(limits = c(-35, 45)) +
-  labs(x = "Actual (kj/min)", y = "Predicted (kj/min) residual", title = "LCDA model")
+  labs(x = TeX("Measured Residual ($kJ \\cdot min^{-1})"), 
+       y = TeX("Predicted Residual ($kJ \\cdot min^{-1})"), title = "LCDA")
 
 ### ACSM (no negative grades)
 
@@ -139,7 +141,8 @@ p_acsm <- pdat_acsm %>%
   geom_hline(yintercept = c(sd_acsm, -sd_acsm), lty = "dashed") +
   theme_bw() +
   scale_y_continuous(limits = c(-35, 45)) +
-  labs(x = "Actual (kj/min)", y = "Predicted (kj/min) residual",  title = "ACSM model")
+  labs(x = TeX("Measured Residual ($kJ \\cdot min^{-1})"), 
+       y = TeX("Predicted Residual ($kJ \\cdot min^{-1})"),  title = "ACSM")
 
 ### Pandolf
 
@@ -155,7 +158,8 @@ p_pandolf <- pdat_pandolf %>%
   geom_hline(yintercept = c(sd_pandolf, -sd_pandolf), lty = "dashed") +
   theme_bw() +
   scale_y_continuous(limits = c(-35, 45)) +
-  labs(x = "Actual (kj/min)", y = "Predicted (kj/min) residual",  title = "Pandolf model")
+  labs(x = TeX("Measured Residual ($kJ \\cdot min^{-1})"), 
+       y = TeX("Predicted Residual ($kJ \\cdot min^{-1})"),  title = "Pandolf")
 
 ### Minetti
 
@@ -171,7 +175,8 @@ p_minetti <- pdat_minetti %>%
   geom_hline(yintercept = c(sd_minetti, -sd_minetti), lty = "dashed") +
   theme_bw() +
   scale_y_continuous(limits = c(-35, 45)) +
-  labs(x = "Actual (kj/min)", y = "Predicted (kj/min) residual",  title = "Minetti model")
+  labs(x = TeX("Measured Residual ($kJ \\cdot min^{-1})"), 
+       y = TeX("Predicted Residual ($kJ \\cdot min^{-1})"),  title = "Minetti")
 
 
 ggsave(plot = p_lcda, filename = "../images_highres/lcda_altman.png", dpi = 300, width = 5, height = 5)
