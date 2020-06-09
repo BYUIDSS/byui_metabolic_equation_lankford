@@ -20,6 +20,7 @@ library(tidyverse)
 library(broom)
 library(RColorBrewer)
 library(patchwork)
+library(latex2exp)
 
 source("../scripts/_funs.R") # one function to get validation and comparison metrics `valid_detail`
 ## validation data
@@ -30,14 +31,15 @@ dat_validate <- read_csv("../data/dat_validation.csv")
 ```
 
 
-```{r}
+```{r, fig.width=10, fig.height=7}
 
 myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
 
 (p_validate <- dat_validate %>% 
   ggplot(aes(x = grade, y = actual_vo2kgml)) +
   geom_jitter(aes(color = speed_actual), height = 0, width = .2) +
-  labs(title = "Validation Data", x = "Grade", y = "VO-2 (ml/kg/min)", color = "Speed (mph)") +
+  labs(title = "Validation Group Data", x = "Grade (%)", 
+       y = parse(text = TeX("C_w $(ml \\cdot kg^{-1} \\cdot min^{-1})$")), color = "Speed (mph)") +
   theme_bw() +
   scale_x_continuous(limits = c(-20, 40), breaks = seq(-20, 40, by = 5)) +
   scale_y_continuous(limits = c(5, 65), breaks = seq(0, 65, by = 5)) +

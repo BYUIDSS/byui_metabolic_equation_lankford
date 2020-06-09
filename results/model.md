@@ -17,6 +17,7 @@ output:
 library(tidyverse)
 library(broom)
 library(pwr)
+library(latex2exp)
 
 ## model objects
 
@@ -56,7 +57,8 @@ dat_model %>%
   geom_jitter(aes(color = speed_actual), height = 0, width = .25) +
   scale_color_viridis_c() +
   geom_line(data = model_fixedspeeds_plot, aes(y = .fitted, color  = speed_actual, group = factor(speed_actual))) +
-  labs(title = "Metabolic Efficiency Training Data", x = "Grade", y = "VO-2 (ml/kg/min)", color = "Speed (mph)") +
+  labs(title = "Development Group Data", x = "Grade (%)", 
+       y = parse(text = TeX("C_w $(ml \\cdot kg^{-1} \\cdot min^{-1})$")), color = "Speed (mph)") +
   theme_bw()
 ```
 
